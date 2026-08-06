@@ -688,12 +688,13 @@ class Zone(ObjectModificationMixin, ContactsMixin, PrimaryModel):
         records = Record.objects.filter(zone_id=self.pk).exclude(
             type=RecordTypeChoices.SOA
         )
-        if records:
-            soa_serial = (
-                records.aggregate(Max("last_updated"))
-                .get("last_updated__max")
-                .timestamp()
-            )
+        max_updated = (
+            records.aggregate(Max("last_updated")).get("last_updated__max")
+            if records
+            else None
+        )
+        if max_updated is not None:
+            soa_serial = max_updated.timestamp()
         else:
             soa_serial = ceil(datetime.now().timestamp())
 
