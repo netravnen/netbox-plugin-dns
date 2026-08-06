@@ -884,6 +884,15 @@ class Record(ObjectModificationMixin, ContactsMixin, PrimaryModel):
     handle_conflicting_address_records.alters_data = True
 
     @property
+    def has_ipam_ip_address(self):
+        """
+        Directly inspects the ipam_ip_address_id foreign key attribute to avoid
+        triggering Django's ForwardManyToOneDescriptor.__get__() ORM database fetch,
+        preventing ObjectDoesNotExist crashes during branch merge replays.
+        """
+        return bool(getattr(self, "ipam_ip_address_id", None))
+
+    @property
     def default_ttl(self):
         if self.ttl is not None:
             return self.ttl
