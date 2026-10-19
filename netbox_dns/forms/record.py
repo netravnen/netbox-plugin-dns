@@ -95,7 +95,7 @@ class RecordForm(TenancyForm, PrimaryModelForm):
         if initial_name:
             self.initial["name"] = name_to_unicode(initial_name)
 
-        if self.initial["disable_ptr"] in (None, ""):
+        if self.instance.pk is None:
             self.initial["disable_ptr"] = settings.PLUGINS_CONFIG.get("netbox_dns").get(
                 "record_disable_ptr", False
             )
