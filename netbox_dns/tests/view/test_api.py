@@ -34,6 +34,9 @@ class ViewAPITestCase(
     bulk_update_data = {
         "description": "Test View",
     }
+    bulk_update_invalid_data = {
+        "tenant": 22222,
+    }
 
     def _get_queryset(self):
         return self.model.objects.filter(default_view=False)

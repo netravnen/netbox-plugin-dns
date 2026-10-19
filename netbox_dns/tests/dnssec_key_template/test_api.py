@@ -64,6 +64,9 @@ class DNSSECKeyTemplateAPITestCase(
         "description": "Update Description",
         "algorithm": DNSSECKeyTemplateAlgorithmChoices.ECDSAP256SHA256,
     }
+    bulk_update_invalid_data = {
+        "key_size": 123,
+    }
 
     @classmethod
     def setUpTestData(cls):

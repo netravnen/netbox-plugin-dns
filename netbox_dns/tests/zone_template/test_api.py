@@ -202,3 +202,6 @@ class ZoneTemplateAPITestCase(
             "billing_c": contacts[0].pk,
             "tags": [t.pk for t in tags],
         }
+        cls.bulk_update_invalid_data = {
+            "registrar": 99999,
+        }

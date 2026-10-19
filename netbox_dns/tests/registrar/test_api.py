@@ -20,7 +20,14 @@ class RegistrarAPITestCase(
 ):
     model = Registrar
 
-    brief_fields = ["description", "display", "iana_id", "id", "name", "url"]
+    brief_fields = [
+        "description",
+        "display",
+        "iana_id",
+        "id",
+        "name",
+        "url",
+    ]
 
     create_data = [
         {
@@ -39,6 +46,9 @@ class RegistrarAPITestCase(
     bulk_update_data = {
         "whois_server": "whois.example.com",
         "address": "42 Drury Lane, Duloc 42523",
+    }
+    bulk_update_invalid_data = {
+        "abuse_email": "invalid",
     }
 
     @classmethod

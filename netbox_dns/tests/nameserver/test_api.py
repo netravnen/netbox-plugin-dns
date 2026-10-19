@@ -31,6 +31,9 @@ class NameServerAPITestCase(
     bulk_update_data = {
         "description": "Test Name Server",
     }
+    bulk_update_invalid_data = {
+        "name": "aa,bb",
+    }
 
     @classmethod
     def setUpTestData(cls):
