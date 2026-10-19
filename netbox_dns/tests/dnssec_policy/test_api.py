@@ -96,6 +96,9 @@ class DNSSECPolicyAPITestCase(
         "nsec3_opt_out": True,
         "nsec3_salt_size": 32,
     }
+    bulk_update_invalid_data = {
+        "cds_digest_types": ["invalid"],
+    }
 
     @classmethod
     def setUpTestData(cls):

@@ -45,6 +45,9 @@ class RecordAPITestCase(
     bulk_update_data = {
         "ttl": 19200,
     }
+    bulk_update_invalid_data = {
+        "status": "invalid",
+    }
 
     @classmethod
     def setUpTestData(cls):

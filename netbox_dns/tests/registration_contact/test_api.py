@@ -30,6 +30,9 @@ class RegistrationContactAPITestCase(
     bulk_update_data = {
         "name": "Paul Doe",
     }
+    bulk_update_invalid_data = {
+        "email": "invalid",
+    }
 
     @classmethod
     def setUpTestData(cls):

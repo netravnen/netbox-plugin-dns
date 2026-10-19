@@ -120,3 +120,6 @@ class RecordTemplateAPITestCase(
             "ttl": 19200,
             "tags": [t.pk for t in tags],
         }
+        cls.bulk_update_invalid_data = {
+            "status": "invalid",
+        }

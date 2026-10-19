@@ -177,3 +177,6 @@ class ZoneAPITestCase(
             "billing_c": contacts[0].pk,
             "comments": r"## Test\n\nThis is a test comment",
         }
+        cls.bulk_update_invalid_data = {
+            "registrar": 99999,
+        }
