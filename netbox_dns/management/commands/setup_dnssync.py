@@ -84,7 +84,7 @@ class Command(BaseCommand):
             )
             if cf_ttl.group_name != "DNSsync":
                 cf_ttl.group_name = "DNSsync"
-                cf_ttl.description = ("TTL for DNS records created for this address",)
+                cf_ttl.description = "TTL for DNS records created for this address"
                 cf_ttl.save()
                 if options.get("verbosity"):
                     self.stdout.write("Updated custom field 'ipaddress_dns_record_ttl'")
@@ -114,7 +114,7 @@ class Command(BaseCommand):
             if cf_disable_ptr.group_name != "DNSsync":
                 cf_disable_ptr.group_name = "DNSsync"
                 cf_disable_ptr.description = (
-                    "Disable DNS PTR record generation for this address",
+                    "Disable DNS PTR record generation for this address"
                 )
                 cf_disable_ptr.save()
                 if options.get("verbosity"):
