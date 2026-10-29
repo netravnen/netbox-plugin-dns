@@ -1,13 +1,17 @@
+from importlib.metadata import version
+
 from django.test import SimpleTestCase
 from django.urls import reverse
 
-from netbox_dns import __version__
+from netbox_dns import __version__, config
 from utilities.testing.api import APITestCase
 
 
 class NetBoxDNSVersionTestCase(SimpleTestCase):
     def test_version(self):
-        assert __version__ == "1.7.3"
+        self.assertTrue(__version__)
+        self.assertEqual(__version__, version("netbox-plugin-dns"))
+        self.assertEqual(config.version, __version__)
 
 
 class AppTest(APITestCase):
