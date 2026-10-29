@@ -50,7 +50,7 @@ For RFC9432 compatible DNS Servers like BIND, a related plugin [netbox-plugin-bi
 
 ## Requirements
 
-* NetBox 4.5.0 or higher
+* NetBox 4.7.0 or higher
 * Python 3.12 or higher
 
 ## Compatibility with NetBox Versions
