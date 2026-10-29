@@ -9,7 +9,7 @@ from netbox.graphql.filters import PrimaryModelFilter
 from tenancy.graphql.filter_mixins import ContactFilterMixin, TenancyFilterMixin
 
 if TYPE_CHECKING:
-    from netbox.graphql.filter_lookups import IntegerLookup
+    from netbox.graphql.filter_lookups import BigIntegerLookup, IntegerLookup
 
     from .dnssec_policy import NetBoxDNSDNSSECPolicyFilter
     from .enums import NetBoxDNSZoneStatusEnum
@@ -65,7 +65,7 @@ class NetBoxDNSZoneFilter(
     soa_mname_id: ID | None = strawberry_django.filter_field()
     soa_rname: StrFilterLookup[str] | None = strawberry_django.filter_field()
     soa_serial: (
-        Annotated["IntegerLookup", strawberry.lazy("netbox.graphql.filter_lookups")]
+        Annotated["BigIntegerLookup", strawberry.lazy("netbox.graphql.filter_lookups")]
         | None
     ) = strawberry_django.filter_field()
     soa_refresh: (
